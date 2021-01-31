@@ -18,27 +18,23 @@ const depositBtn = document.getElementById('addDeposit');
 depositBtn.addEventListener('click', function(){
     const depositAmount = document.getElementById('deposit').value;
     const depositNumber = parseFloat(depositAmount);
+
+     const currentDeposit = document.getElementById('currentDeposit').innerText;
+     const currentDepositNumber = parseFloat(currentDeposit);
+
+     const totalDeposit = depositNumber + currentDepositNumber;
     
+     document.getElementById('currentDeposit').innerText = totalDeposit;
 
-    const currentDeposit = document.getElementById('currentDeposit').innerText;
-    const currentDepositNumber = parseFloat(currentDeposit);
+     const currentBlance = document.getElementById('currentblance').innerText;
+     const currentBlanceNumber = parseFloat(currentBlance);
+     
+     const totalBlanceSum = depositNumber + currentBlanceNumber;  
+     document.getElementById('currentblance').innerText = totalBlanceSum;
 
-    const totalDeposit = depositNumber + currentDepositNumber;
+     document.getElementById('deposit').value='';
+
     
-    document.getElementById('currentDeposit').innerText = totalDeposit;
-    document.getElementById('deposit').value='';
-
-
-    // add to blance
-    const currentBlance = document.getElementById('currentblance').innerText;
-    const currentBlanceNumber = parseFloat(currentBlance);
-     
-    const totalBlanceSum = depositNumber + currentBlanceNumber;
-     
-    document.getElementById('currentblance').innerText = totalBlanceSum;
- 
-  
-
 })
 
 
@@ -63,10 +59,11 @@ withdrawBtn.addEventListener('click', function(){
    const currentBlance = document.getElementById('currentblance').innerText;
    const currentBlanceNumber = parseFloat(currentBlance);
    
-   const totalBlanceCost = withdrawNumber - currentBlanceNumber;
+   document.getElementById('currentblance').innerText = totalWithdraw;
 
-   document.getElementById('currentblance').innerText = totalBlanceCost;
+   const totalBlance = withdrawNumber -1 * currentBlanceNumber;  
+   document.getElementById('currentblance').innerText = totalBlance;
+   
 
-  // document.getElementById('currentblance').innerText = totalWithdraw;
 })
 
